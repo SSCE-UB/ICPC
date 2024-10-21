@@ -1,0 +1,196 @@
+\documentclass[12pt]{article}
+
+
+\usepackage{pgffor}
+
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{lastpage} 
+\usepackage{lipsum} % generates filler text
+\usepackage[usenames,dvipsnames]{xcolor} % add this to the preamble
+
+\usepackage[top=2cm, left=1.5cm, right=1.5cm, bottom=3cm]{geometry} % set margins
+\setlength{\footskip}{25pt} % space for the footer
+\setlength{\headheight}{105pt} % slightly reduced space for the header
+\setlength{\textheight}{7.5in} % adjust as needed
+
+\usepackage{color} % for colored text
+\usepackage{titlesec} % for customizing section titles
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{mathpazo}
+\usepackage{helvet}
+\usepackage{couriers}
+\usepackage{microtype}
+\usepackage{fancyvrb}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{bm}
+\usepackage{colonequals}
+\usepackage{paralist}
+\usepackage{import}
+\usepackage[
+type={CC},
+modifier={by-sa},
+version={4.0},
+]{doclicense}
+\usepackage{marginnote}
+\usetikzlibrary{patterns}
+\newcommand{\NN}{\mathbb{N}}
+
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{topaths}
+
+\definecolor{MyDarkGreen}{rgb}{0.03,0.45,0.18}
+\definecolor{MyDarkRed}{rgb}{0.69,0.07,0.07}
+\definecolor{MyDarkBlue}{rgb}{0.0,0.20,0.6}
+\definecolor{MyDarkOrange}{rgb}{0.60,0.27,0.08}
+\definecolor{MyDarkViolet}{rgb}{0.40,0.0,0.40}
+\definecolor{MyDarkMagenta}{rgb}{0,0.42,0.42}
+\definecolor{MyDarkBrown}{rgb}{0.40,0.20,0}
+
+% http://tex.stackexchange.com/a/22255
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+		\kern-\nulldelimiterspace % automatically resize the bar with \right
+		#1 % the function
+		_{|#2} % this is the delimiter
+}}
+
+\setstretch{1.3}
+
+
+\usepackage[hidelinks]{hyperref}
+\renewcommand*{\thesection}{Problem~\Alph{section}:}
+
+\newcommand{\problemname}[1]{\section*{#1}}
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+\newcommand\TwoDigits[1]{%
+	\ifnum#1<10 0#1\else #1\fi
+}
+
+\let\itemize\compactitem
+\let\enditemize\endcompactitem
+
+\newcommand{\inputsample}[1]{%
+	\foreach \nb in {1,...,10}{%
+		\edef\filename{#1/data/sample/sample\TwoDigits{\nb}}%
+		\IfFileExists{\filename.in}{%
+			\par\bigskip\bigskip
+			\noindent\begin{minipage}{\linewidth}%
+				\subsection*{Sample Input}%
+				\VerbatimInput[frame=single]{\filename.in}%
+			\end{minipage}%
+			\par\bigskip
+			\noindent\begin{minipage}{\linewidth}%
+				\subsection*{Sample Output}%
+				\VerbatimInput[frame=single]{\filename.ans}%
+			\end{minipage}%
+		}%
+	}%
+}
+
+\newcommand*\cleartoleftpage{%
+	\clearpage
+	\ifodd\value{page}\thispagestyle{empty}\hbox{}\newpage\fi
+}
+
+% From
+% https://tex.stackexchange.com/questions/134117/balloon-shape-in-tikz
+\newcommand{\balloon}[1]{%
+	\marginnote{\begin{minipage}{0cm}{\vspace*{1cm}~\hspace*{-1.5cm}\smash{\begin{tikzpicture}[scale=.4]%
+						\definecolor{mycolor}{HTML}{#1}%
+						\definecolor{fakewhite}{HTML}{ffffcc}%
+						\tikzstyle{balloon}=[outer color=mycolor,inner color=mycolor!30!fakewhite];%
+						\shade[ball color=mycolor] (-.1,-2) -- (-.3,-2.2) -- (.3,-2.2) -- (.1,-2) -- cycle;%
+						\draw (0,-2.2) .. controls (-0.5,-2.8) and (-0.5,-3.4) .. (0,-4);%
+						\draw (0,-4) .. controls (0.5,-4.6) and (0.5,-5.2) .. (0,-5.8);%
+						\draw[thick] ellipse (1.75 and 2);%
+						\clip ellipse (1.75 and 2);%
+						\shade[balloon] (-.5,.5) circle (3);
+\end{tikzpicture}}}\end{minipage}}}
+
+
+
+
+\newcounter{problem}
+\setcounter{problem}{1}
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt} % remove the header line
+
+\definecolor{mycolor}{HTML}{546E7A} % define the color
+
+% replace the tikzpicture environment with the following:
+\fancyhead{}
+\fancyhead[LO,RE]{} % حذف عنوان بخش از هدر در صفحات فرد و زوج
+\fancyhead[C]{
+	\raisebox{-1cm}{\includegraphics[width=\dimexpr\textwidth-1cm\relax]{header.png}}\\
+	\vspace{1cm}
+	\begin{tikzpicture}
+		\fill[mycolor] (0,0) rectangle (\textwidth-2cm,1cm);
+		\node at (\textwidth/2-1cm,0.5cm) {\large\textbf{\textcolor{white}{2024 ACM ICPC BIRJAND PROVINCIAL CONTEST}}};
+	\end{tikzpicture}
+}
+\addtolength{\headsep}{.3cm}
+
+
+
+\setlength{\headheight}{120pt} % space for the image and title
+
+% \titleformat{\section}[block]{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\section}[block]{\normalfont\Large\bfseries}{Problem \Alph{section} -}{1em}{}
+
+\titlespacing*{\section}{0pt}{3cm}{20pt} % adjust the second dimension for space above the section title and third for space below
+
+\def\folderlist{1,5,2,3,4,10,7,6,9,8} % فرض کرده‌ام که سه پوشه دارید
+\addtolength{\footskip}{1cm}
+
+\newcommand{\problemWithTime}[2]{%
+	\noindent
+	\begin{minipage}{.7\textwidth}
+		\section{#1}
+	\end{minipage}%
+	\begin{minipage}[t]{.3\textwidth}
+		\hfill \textbf{Time limit: #2}
+	\end{minipage}
+}
+
+\newcommand{\problem}[1]{%
+	\section{#1}
+}
+
+\newcommand{\mysec}[1]{%
+	\vspace{0.3cm}
+	\textbf{#1}
+	\vspace{0.25cm}
+}
+
+\setlength{\parindent}{5pt}
+
+\begin{document}
+	
+	\fancyfoot{}
+	\input{first.tex}
+	\newpage
+	
+	\fancyfoot[C]{} % This clears the center 
+	\fancyfoot[R]{Problem \Alph{section} | Page \arabic{page}} % page number
+	
+	\foreach \folder in \folderlist {
+		\setcounter{page}{1}
+		\input{problems/\folder/problem.tex}
+		\newpage
+	}
+	
+	
+\end{document}

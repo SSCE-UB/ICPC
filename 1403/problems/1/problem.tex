@@ -1,0 +1,36 @@
+\problemWithTime{Grading System}{1 second}
+
+Professor Hedayati has set specific rules for grading in his Operating Systems course based on student absences. The rules are as follows:
+
+\begin{itemize}
+	\item If a student has zero absences, they will receive a grade of 20.
+	\item If a student has exactly seven absences, they will retain their current grade \( X \).
+	\item Otherwise, for each day a student is absent (from 1 to 6 days or more than 7 days), their grade will decrease by exactly one point per day (if the grade drops below zero, it will be considered as zero).
+\end{itemize}
+
+Given the current grade \( X \) of a student and the number of absences \( N \), determine the student's final grade.
+
+\mysec{Input}
+\begin{itemize}
+	\item The first line contains an integer \( X \) ($0 \leq X \leq 20$) which represents the student's current grade in the Operating Systems course.
+	\item The second line contains an integer \( N \) ($ 0 \leq N \leq 100$) which represents the number of days the student was absent.
+\end{itemize}
+
+
+\mysec{Output}
+Print the final grade the student will receive after considering the number of absences.
+
+
+\vspace{1cm}
+
+\begin{tabular}{|>{\arraybackslash}m{9cm}|>{\arraybackslash}m{6cm}|}
+	\hline
+	Standard Input & Standard Output \\
+	\hline
+	14  & 20 \\
+	0  &  \\
+	\hline
+	6 & 6 \\
+	7 &  \\
+	\hline
+\end{tabular}

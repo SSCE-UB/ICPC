@@ -1,0 +1,32 @@
+\problemWithTime{Contest Preparation Schedule}{1 second}
+
+Birjand University is organizing the 10th ICPC Provincial Competition, and the preparation schedule for this event is critical to its success. The organizing committee needs to create a schedule for multiple preparation activities, ensuring that all necessary tasks are completed on time without any overlap.
+
+Each preparation activity has a specific start time and end time. The goal is to determine if it is possible to schedule all activities such that no two activities overlap.
+
+\subsection*{Input}
+
+The input consists of:
+\begin{itemize}
+	\item An integer $n$ $(1 \leq n \leq 100)$ representing the number of preparation activities.
+	\item $n$ lines, each containing two integers $start$ and $end$ $(0 \leq start < end \leq 1000)$ representing the start time and end time of each activity.
+\end{itemize}
+
+\subsection*{Output}
+
+Output "YES" if it is possible to schedule all activities without any overlap. Otherwise, output "NO".
+
+\subsection*{Example}
+
+\textbf{Input:}
+\begin{verbatim}
+	3
+	1 5
+	5 10
+	3 8
+\end{verbatim}
+
+\textbf{Output:}
+\begin{verbatim}
+	NO
+\end{verbatim}

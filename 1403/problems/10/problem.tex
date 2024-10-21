@@ -1,0 +1,31 @@
+\problemWithTime{The Happy Worm}{2 seconds}
+
+The Happy Worm lives in an $m \times n$ rectangular field. There are $k$ stones placed in certain locations of the field. (Each square of the field is either empty, or contains a stone.) Whenever the worm sleeps, it lies either horizontally or vertically, and stretches so that its length increases as much as possible. The worm will not go in a square with a stone or out of the field. The happy worm cannot be shorter than 2 squares.
+
+The question you are to answer is how many different positions this worm could be in while sleeping.
+
+\mysec{Input}
+
+The first line of the input file contains a single integer $t$ ($1 \leq t \leq 11$), the number of test cases, followed by the input data for each test case. The first line of each test case contains three integers $m$, $n$, and $k$ ($1 \leq m,n,k \leq 100000$). The input for this test case will be followed by $k$ lines. Each line contains two integers which specify the row and column of a stone. No stone will be given twice.
+
+\mysec{Output}
+
+There should be one line per test case containing the number of positions the happy worm can be in.
+
+\vspace{1cm}
+
+\begin{tabular}{|>{\arraybackslash}m{9cm}|>{\arraybackslash}m{6cm}|}
+	\hline
+	Standard Input & Standard Output \\
+	\hline
+1      &  9 \\
+5 5 6  &   \\
+1 5    &   \\
+2 3    &   \\
+2 4    &   \\
+4 2    &   \\ 
+4 3    &   \\
+5 1    &   \\
+	\hline
+\end{tabular}
+
